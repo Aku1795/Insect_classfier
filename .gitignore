@@ -1,4 +1,7 @@
 .DS_store
 .envi
 .ipynb_checkpoints
+Dataset
+multimedia.csv
+occurrence.csv
 
