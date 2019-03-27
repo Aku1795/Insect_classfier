@@ -4,7 +4,7 @@ from helpers import convert
 
 
 class FeatureSourcer:
-    def __init__(self, p, start_frame):
+    def __init__(self, p):
         self.color_model = p['color_model']
         self.s = p['bounding_box_size']
 
@@ -18,8 +18,9 @@ class FeatureSourcer:
         self.hogA, self.hogB, self.HogC = None, None, None
         self.hogA_img, self.hogB_img, self.hogC = None, None, None
 
-        self.RGB_img = start_frame
-        self.new_frame(self.RGB_img)
+        # self.RGB_img = start_frame
+        self.RGB_img = None
+        # self.new_frame(self.RGB_img)
 
     def hog(self, channel):
         features, hog_img = hog(channel,
