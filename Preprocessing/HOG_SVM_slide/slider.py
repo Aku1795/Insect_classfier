@@ -1,8 +1,5 @@
 import numpy as np
 import cv2
-from featuresourcer import FeatureSourcer
-from binaryclassifier import BinaryClassifier
-
 
 class Slider:
 
@@ -42,6 +39,8 @@ class Slider:
         for resized_x in range(0, x_end, self.i):
 
             features = self.sourcer.slice(resized_x, 0, self.h, self.h)
+
+            print(features.shape)
 
             if self.classifier.predict(features):
                 x = np.int(scaler * resized_x)

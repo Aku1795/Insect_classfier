@@ -11,7 +11,6 @@ class FeatureSourcer:
         self.ori = p['number_of_orientations']
         self.ppc = (p['pixels_per_cell'], p['pixels_per_cell'])
         self.cpb = (p['cells_per_block'], p['cells_per_block'])
-        self.do_sqrt = p['do_transform_sqrt']
 
         self.ABC_img = None
         self.dims = (None, None, None)
@@ -27,7 +26,7 @@ class FeatureSourcer:
                                 orientations=self.ori,
                                 pixels_per_cell=self.ppc,
                                 cells_per_block=self.cpb,
-                                transform_sqrt=self.do_sqrt,
+                                transform_sqrt=True,
                                 visualise=True,
                                 feature_vector=False)
         return features, hog_img
@@ -43,6 +42,7 @@ class FeatureSourcer:
         self.hogC, self.hogC_img = self.hog(self.ABC_img[:, :, 2])
 
     def slice(self, x_pix, y_pix, w_pix=None, h_pix=None):
+        print(self.dims)
         x_start, x_end, y_start, y_end = self.pix_to_hog(x_pix, y_pix, h_pix, w_pix)
 
         hogA = self.hogA[y_start: y_end, x_start: x_end].ravel()
