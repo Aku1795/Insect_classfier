@@ -15,8 +15,8 @@ class FeatureSourcer:
 
         self.ABC_img = None
         self.dims = (None, None, None)
-        self.hogA, self.hogB, self.HogC = None, None, None
-        self.hogA_img, self.hogB_img, self.hogC = None, None, None
+        self.hogA, self.hogB, self.hogC = None, None, None
+        self.hogA_img, self.hogB_img, self.hogC_img = None, None, None
 
         # self.RGB_img = start_frame
         self.RGB_img = None
@@ -35,6 +35,7 @@ class FeatureSourcer:
     def new_frame(self, frame):
         self.RGB_img = frame
         self.ABC_img = convert(frame, src_model='rgb', dest_model=self.color_model)
+        # self.ABC_img = frame
         self.dims = self.RGB_img.shape
 
         self.hogA, self.hogA_img = self.hog(self.ABC_img[:, :, 0])
