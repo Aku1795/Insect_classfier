@@ -5,3 +5,4 @@ Dataset
 multimedia.csv
 occurrence.csv
 .idea
+__pycache__
