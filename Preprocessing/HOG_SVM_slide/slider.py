@@ -40,8 +40,6 @@ class Slider:
 
             features = self.sourcer.slice(resized_x, 0, self.h, self.h)
 
-            print(features.shape)
-
             if self.classifier.predict(features):
                 x = np.int(scaler * resized_x)
                 boxes.append((x, y, ws))

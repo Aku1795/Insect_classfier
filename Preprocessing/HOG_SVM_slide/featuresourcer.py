@@ -42,7 +42,6 @@ class FeatureSourcer:
         self.hogC, self.hogC_img = self.hog(self.ABC_img[:, :, 2])
 
     def slice(self, x_pix, y_pix, w_pix=None, h_pix=None):
-        print(self.dims)
         x_start, x_end, y_start, y_end = self.pix_to_hog(x_pix, y_pix, h_pix, w_pix)
 
         hogA = self.hogA[y_start: y_end, x_start: x_end].ravel()
