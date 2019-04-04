@@ -1,6 +1,9 @@
+#Local environment var
 .DS_store
 .envi
 .ipynb_checkpoints
+
+#Data
 Dataset
 multimedia.csv
 occurrence.csv
