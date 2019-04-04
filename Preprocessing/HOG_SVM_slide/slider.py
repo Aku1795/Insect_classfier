@@ -26,7 +26,12 @@ class Slider:
         return self.current_strip
 
     def locate(self, frame, window_size, window_position):
-    # def locate(self, frame, nb_div):
+        """
+        :param frame: full picture
+        :param window_size: coordonnée verticale de la box
+        :param window_position: taille de la box
+        :return:
+        """
 
         y, ws = window_position, window_size
         scaler, strip = self.prepare(frame, y, ws)
@@ -37,11 +42,16 @@ class Slider:
         x_end = (strip.shape[1] // self.h - 1) * self.h
 
         for resized_x in range(0, x_end, self.i):
+        # resized_x = 0
+        # while resized_x <= x_end:
 
             features = self.sourcer.slice(resized_x, 0, self.h, self.h)
 
             if self.classifier.predict(features):
                 x = np.int(scaler * resized_x)
                 boxes.append((x, y, ws))
+
+            # resized_x += x_end // 10
+            # resized_x += ws // 10
 
         return boxes

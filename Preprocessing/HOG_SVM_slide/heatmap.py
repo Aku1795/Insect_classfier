@@ -7,15 +7,15 @@ import matplotlib.pyplot as plt
 
 class HeatMap:
 
-    def __init__(self, frame, memory, thresh):
+    def __init__(self, frame, thresh=6, memory=float("inf")):
 
         self.blank = np.zeros_like(frame[:, :, 0]).astype(np.float)
         self.map = np.copy(self.blank)
         self.thresholded_map = None
         self.labeled_map = None
         self.samples_found = 0
-        self.thresh = thresh
-        self.memory = memory
+        # self.thresh = thresh
+        # self.memory = memory
         self.history = []
 
     def reset(self):
@@ -23,8 +23,9 @@ class HeatMap:
         self.history = []
 
     def do_threshold(self):
+        thresh = np.amax(self.map) // 2
         self.thresholded_map = np.copy(self.map)
-        self.thresholded_map[self.map < self.thresh] = 0
+        self.thresholded_map[self.map < thresh] = 0
 
     def get(self):
         self.do_threshold()
@@ -43,12 +44,12 @@ class HeatMap:
 
     def update(self, boxes):
 
-        if len(self.history) == self.memory:
-            self.remove(self.history[0])
-            self.history = self.history[1:]
+        # if len(self.history) == self.memory:
+        #     self.remove(self.history[0])
+        #     self.history = self.history[1:]
 
         self.add(boxes)
-        self.history.append(boxes)
+        # self.history.append(boxes)
 
     def label(self):
         labeled = label(self.thresholded_map)
@@ -70,7 +71,6 @@ class HeatMap:
         return this_frame
 
     def show(self, frame, tdpi=80):
-
         mp, tmp, lmp = self.get()
         labeled_img = self.draw(frame)
 
