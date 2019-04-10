@@ -15,9 +15,14 @@ We found insects pictures from gbif.org by scrapping images. We have a total of 
 
 The preprocessing step aims to locate the mosquito in the picture in order to crop it and make better predictions after.
 
-We trained an SVM 
+We trained a SVM model on the HOG of the pictures to predict either it's an insect or not. Then for locating the insect in the picture we use a sliding window and keep the parts very likely to englobe an insect with a heatmap.
 
-Please find in the ./Preprocessing folder the jupyter notebooks showing the method.
+Please find in the ./Preprocessing/HOG_SVM folder the jupyter notebooks explaining the different tasks:
+- feature_sourcer_test.ipynb: test the HOG feature sourcer
+- classifier_training.ipynb: train the SVM
+- HOG_SVM_grid_search.ipynb: find best params for model
+- slider_test.ipynb: show sliding window
+- heatmap_test.ipynb: show the heatmap functionality
 
 ## Image Classification
 
