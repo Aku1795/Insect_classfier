@@ -9,13 +9,16 @@ Data Science project for the class of Deep Learning, Computer Vision and Datamin
 
 ## Datasets
 
-We found insects pictures from gbif.org by scrapping images. We have a total of 2000 pictures by species. You can find a sample dataset with 200 pictures by species in ./ExampleDataset
+We found insects pictures from gbif.org by scrapping images.
+We have a total of 2000 pictures by species.
+You can find a sample dataset with 200 pictures by species in ./ExampleDataset.
 
 ## Preprocessing
 
 The preprocessing step aims to locate the mosquito in the picture in order to crop it and make better predictions after.
 
-We trained a SVM model on the HOG of the pictures to predict either it's an insect or not. Then for locating the insect in the picture we use a sliding window and keep the parts very likely to englobe an insect with a heatmap.
+We trained a SVM model on the HOG of the pictures to predict either it's an insect or not.
+Then for locating the insect in the picture we use a sliding window and keep the parts very likely to englobe an insect with a heatmap.
 
 Please find in the ./Preprocessing/HOG_SVM folder the jupyter notebooks explaining the different tasks:
 - feature_sourcer_test.ipynb: test the HOG feature sourcer
@@ -31,9 +34,13 @@ Two approaches were explored to classify insect pictures. On one hand a CNN was 
 
 ### CNN from scratch
 
-The first approach we tried was to train a CNN from scratch. Our network consists roughly of 2 layers of convolution intertwined with 2 maxpooling and toped by a dropout layer. The output is then passed through a fully connected MLP. The loss function used for this work is sparse_categorical_crossentropy.
+The first approach we tried was to train a CNN from scratch.
+Our network consists roughly of 2 layers of convolution intertwined with 2 maxpooling and toped by a dropout layer.
+The output is then passed through a fully connected MLP.
+The loss function used for this work is sparse_categorical_crossentropy.
 
-In order to find the best combination of hyperparameteres we implemented a grid search testing different combination. Please refer to the ./CNN_from_scratch
+In order to find the best combination of hyperparameters we implemented a grid search testing different combination.
+Please refer to the ./CNN_from_scratch
 
 ### Transfer learning and fine tuning
 
