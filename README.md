@@ -35,12 +35,14 @@ Two approaches were explored to classify insect pictures. On one hand a CNN was 
 ### CNN from scratch
 
 The first approach we tried was to train a CNN from scratch.
-Our network consists roughly of 2 layers of convolution intertwined with 2 maxpooling and toped by a dropout layer.
+Our network consists roughly of 2 layers of convolution intertwined with 2 maxpooling and topped by a dropout layer.
 The output is then passed through a fully connected MLP.
 The loss function used for this work is sparse_categorical_crossentropy.
 
-In order to find the best combination of hyperparameters we implemented a grid search testing different combination.
+In order to find the best combination of hyperparameters we implemented a grid search testing different combinations.
 Please refer to the ./CNN_from_scratch
 
 ### Transfer learning and fine tuning
-
+The other approach was applying transfer learning. We used a pre-trained model called Resnet18, trained on the ImageNet dataset. The parameters of the model were frozen; only the last layer was modified, using a SGD.
+With fine-tuning the same pre-trained model was used; this time however, the parameters were unfrozen in order to adapt the model to our classification objective. 
+Please refer to the ./TransferL_FineT_Pytorch
