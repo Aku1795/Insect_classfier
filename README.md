@@ -31,6 +31,9 @@ Two approaches were explored to classify insect pictures. On one hand a CNN was 
 
 ### CNN from scratch
 
+The first approach we tried was to train a CNN from scratch. Our network consists roughly of 2 layers of convolution intertwined with 2 maxpooling and toped by a dropout layer. The output is then passed through a fully connected MLP. The loss function used for this work is sparse_categorical_crossentropy.
+
+In order to find the best combination of hyperparameteres we implemented a grid search testing different combination. Please refer to the ./CNN_from_scratch
 
 ### Transfer learning and fine tuning
 
