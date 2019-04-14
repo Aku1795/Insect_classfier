@@ -1,4 +1,4 @@
-# Insect_classifier
+# Insect classifier
 ## Computer Vision, Datamining and Deep Learning  project, CentraleSupélec 2019
 
 - *Aubin Victor*
