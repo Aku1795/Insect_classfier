@@ -44,5 +44,7 @@ Please refer to the ./CNN_from_scratch
 
 ### Transfer learning and fine tuning
 The other approach was applying transfer learning. We used a pre-trained model called Resnet18, trained on the ImageNet dataset. The parameters of the model were frozen; only the last layer was modified, using a SGD.
+
 With fine-tuning the same pre-trained model was used; this time however, the parameters were unfrozen in order to adapt the model to our classification objective. 
+
 Please refer to the ./transferL_FineT_Pytorch
